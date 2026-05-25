@@ -1,42 +1,25 @@
-Breached:import { system, world } from "@minecraft/server";
-// config
-const CHECK_INTERVAL = 20;
-const MAX_DISTANCE = 48;
-const UPDATE_INTERVAL = 40;
-let entityLastUpdate = new Map();
-system.runInterval(() => {
-const players = world.getPlayers();
-for (const p of players) {
-const entities = p.getEntitiesFromViewDirection(); //
-if (!entities) continue;
-for (const entity of entities) {
-const dist = p.location.distance(entity.location);
-// удаление при слишком большом расстоянии
-if (dist > MAX_DISTANCE) {
-try {
-entity.remove();
-} catch (e) {}
-continue;
-}
-const now = system.currentTick;
-// безопасный ключ без "??"
-let key = entity.id ? entity.id : entity;
-let lastUpdate = entityLastUpdate.has(key)
-? entityLastUpdate.get(key)
-: 0;
-// редкое обновление, если далеко
-if (dist > MAX_DISTANCE / 2) {
-if ((now - lastUpdate) < UPDATE_INTERVAL) {
-continue;
-}
-}
-entityLastUpdate.set(key, now);
-// проверка на baby-компонент
-try {
-if (entity.hasComponent("minecraft:is_baby")) {
-// optional
-}
-} catch (e) {}
-}
-}
-}, CHECK_INTERVAL);
+Love Heart
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: #000; overflow: hidden; display: flex; align-items: center; justify-content: center; height: 100vh; }
+canvas { display: block; }
+const canvas = document.getElementById("c");
+const ctx = canvas.getContext("2d");
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+let angle = 0;
+const NUM_STEPS = 70;
+const SCALE = 10;
+const TEXT = “I love you”;
+function heartX(t) { return 16 * Math.pow(Math.sin(t), 3); }
+function heartY(t) { return 13*Math.cos(t) - 5*Math.cos(2*t) - 2*Math.cos(3*t) - Math.cos(4*t); }
+function draw() {
+ctx.clearRect(0, 0, canvas.width, canvas.height);
+const cx = canvas.width / 2;
+const cy = canvas.height / 2;
+ctx.font = “bold 10px Arial”;
+ctx.textAlign = “center”;
+ctx.textBaseline = “middle”;
+for (let i = 0; i {
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+});
