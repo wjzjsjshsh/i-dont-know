@@ -5,106 +5,73 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>I Love You</title>
     <style>
-        * {
+        /* Reset and center everything on the screen */
+        body {
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
+            height: 100vh;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
-            min-height: 100vh;
-            background-color: #0d0d13;
+            background: linear-gradient(135deg, #ffe6e6, #ffb3ba);
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             overflow: hidden;
         }
 
-        .container {
+        /* Container for the content */
+        .card {
             text-align: center;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 30px;
+            background: rgba(255, 255, 255, 0.85);
+            padding: 40px 60px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
         }
 
-        .heart {
-            position: relative;
-            width: 100px;
-            height: 90px;
-            background-color: #ff2a5f;
-            transform: rotate(-45deg);
-            animation: beat 1.2s infinite ease-in-out;
-            box-shadow: 0 0 40px #ff2a5f, 0 0 80px #ff2a5f;
-        }
-
-        .heart::before,
-        .heart::after {
-            content: "";
-            position: absolute;
-            width: 100px;
-            height: 100px;
-            background-color: #ff2a5f;
-            border-radius: 50%;
-        }
-
-        .heart::before {
-            top: -50px;
-            left: 0;
-        }
-
-        .heart::after {
-            top: 0;
-            left: 50px;
-        }
-
-        .text {
+        /* The text styling */
+        h1 {
+            color: #ff4d6d;
             font-size: 3rem;
-            font-weight: 800;
-            color: #ffffff;
-            text-transform: uppercase;
-            letter-spacing: 4px;
-            text-shadow: 0 0 10px #ff2a5f, 0 0 20px #ff2a5f, 0 0 40px #ff2a5f;
-            animation: fadeIn 2s ease-in-out;
+            margin: 0 0 20px 0;
+            letter-spacing: 2px;
         }
 
-        @keyframes beat {
+        /* Animated Heart */
+        .heart {
+            color: #ff0a54;
+            font-size: 5rem;
+            animation: pulse 1.2s infinite;
+            display: inline-block;
+        }
+
+        /* Heart beating animation */
+        @keyframes pulse {
             0% {
-                transform: scale(1) rotate(-45deg);
+                transform: scale(1);
             }
             30% {
-                transform: scale(1.25) rotate(-45deg);
+                transform: scale(1.2);
             }
             60% {
-                transform: scale(1) rotate(-45deg);
+                transform: scale(1);
             }
             80% {
-                transform: scale(1.15) rotate(-45deg);
+                transform: scale(1.15);
             }
             100% {
-                transform: scale(1) rotate(-45deg);
-            }
-        }
-
-        @keyframes fadeIn {
-            0% {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0);
+                transform: scale(1);
             }
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <div class="heart"></div>
-        <div class="text">ha xall </div>
+    <div class="card">
+        <div class="heart">❤️</div>
+        <h1>I Love You</h1>
     </div>
 
 </body>
 </html>
+
