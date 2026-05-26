@@ -3,60 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>I Love You</title>
+    <title>Bre Mn Sheremn</title>
     <style>
         /* Reset and center everything on the screen */
-        body {
+        * {
             margin: 0;
             padding: 0;
-            height: 100vh;
+            box-sizing: border-box;
+        }
+
+        body {
             display: flex;
-            flex-direction: column;
             justify-content: center;
             align-items: center;
-            background: linear-gradient(135deg, #ffe6e6, #ffb3ba);
+            min-height: 100vh;
+            background-color: #000000; /* Black background */
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             overflow: hidden;
         }
 
-        /* Container for the content */
+        /* Container for the text and heart */
         .card {
-            text-align: center;
-            background: rgba(255, 255, 255, 0.85);
+            background-color: #ffffff; /* White card background */
             padding: 40px 60px;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(255, 255, 255, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease;
         }
 
-        /* The text styling */
-        h1 {
-            color: #ff4d6d;
-            font-size: 3rem;
-            margin: 0 0 20px 0;
-            letter-spacing: 2px;
+        .card:hover {
+            transform: scale(1.05);
         }
 
-        /* Animated Heart */
+        /* Styling the text */
+        .text {
+            color: #000000; /* Black text */
+            font-size: 2.5rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+        }
+
+        /* Styling the black heart */
         .heart {
-            color: #ff0a54;
-            font-size: 5rem;
-            animation: pulse 1.2s infinite;
+            font-size: 3rem;
+            color: #000000; /* Black heart */
             display: inline-block;
+            animation: pulse 1.5s infinite;
         }
 
-        /* Heart beating animation */
+        /* Smooth pulsing animation for the heart */
         @keyframes pulse {
             0% {
                 transform: scale(1);
             }
-            30% {
-                transform: scale(1.2);
-            }
-            60% {
-                transform: scale(1);
-            }
-            80% {
+            50% {
                 transform: scale(1.15);
             }
             100% {
@@ -68,8 +70,8 @@
 <body>
 
     <div class="card">
-        <div class="heart">❤️</div>
-        <h1>I Love You</h1>
+        <div class="text">bre mn sheremn</div>
+        <div class="heart">&#x2665;</div>
     </div>
 
 </body>
